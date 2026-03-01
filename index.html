@@ -1,82 +1,107 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <title>Mărțișor pentru tine ❤️</title>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(to bottom right, #ffdde1, #ee9ca7);
-            font-family: 'Segoe UI', sans-serif;
-            text-align: center;
-            color: #b30000;
-        }
+<meta charset="UTF-8">
+<title>Mărțișor pentru tine ❤️</title>
 
-        .card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            max-width: 500px;
-            animation: fadeIn 2s ease-in-out;
-        }
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+}
 
-        h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    text-align: center;
+    max-width: 500px;
+    animation: fadeIn 2s ease-in-out;
+}
 
-        p {
-            font-size: 20px;
-        }
+h1 {
+    color: #d1005c;
+    margin-bottom: 15px;
+}
 
-        img {
-            width: 200px;
-            margin-top: 20px;
-        }
+p {
+    font-size: 18px;
+    color: #444;
+}
 
-        .string {
-            width: 200px;
-            height: 8px;
-            margin: 10px auto;
-            background: repeating-linear-gradient(
-                90deg,
-                red 0px,
-                red 10px,
-                white 10px,
-                white 20px
-            );
-            border-radius: 10px;
-        }
+img {
+    width: 280px;
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: transform 0.4s ease;
+}
 
-        @keyframes fadeIn {
-            from {opacity: 0; transform: scale(0.9);}
-            to {opacity: 1; transform: scale(1);}
-        }
-    </style>
+img:hover {
+    transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.8);}
+    to {opacity: 1; transform: scale(1);}
+}
+
+/* inimioare animate */
+.heart {
+    position: absolute;
+    color: rgba(255,0,80,0.6);
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    from {transform: translateY(100vh);}
+    to {transform: translateY(-10vh);}
+}
+</style>
 </head>
+
 <body>
 
-<div class="card">
+<div class="container">
     <h1>🌹 Mărțișorul meu pentru tine 🌹</h1>
     <p>
-        Iubirea mea,<br><br>
-        Așa cum firul alb și roșu se împletesc,  
-        la fel se împletesc și inimile noastre. ❤️  
-        Îți ofer acest mărțișor virtual,  
-        dar sentimentele sunt cât se poate de reale.
+        Stiu ca e greu,<br><br>
+        Vreau sa stii ca oricat de greu ar fi
+        Mereu vom gasi o cale sa trecem peste.<br><br>
+        Nu sunt acum langa tine, dar incerc sa-ti ofer 
+        un fel de martisor virtual, poate o sa te inveseleasca❤️
     </p>
 
-    <div class="string"></div>
+    <img src="noi.jpg" alt="Noi doi">
 
-    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23" alt="Trandafir roșu">
-
-    <p><strong>Te iubesc! 🌷</strong></p>
+    <p><strong>Te iubesc enorm! 💖</strong></p>
 </div>
+
+<script>
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 400);
+</script>
 
 </body>
 </html>
